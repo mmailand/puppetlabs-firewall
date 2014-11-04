@@ -38,7 +38,7 @@ class firewall::linux::debian (
       ensure    => undef,
       enable    => $enable,
       hasstatus => true,
-      require   => Package['iptables-persistent'],
+      require   => Package['netfilter-persistent'],
     }
   }
 }
