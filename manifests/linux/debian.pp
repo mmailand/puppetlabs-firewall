@@ -34,11 +34,11 @@ class firewall::linux::debian (
   } else {
     # This isn't a real service/daemon. The start action loads rules, so just
     # needs to be called on system boot.
-    service { 'iptables-persistent':
+    service { 'netfilter-persistent':
       ensure    => undef,
       enable    => $enable,
       hasstatus => true,
-      require   => Package['netfilter-persistent'],
+      require   => Package['iptables-persistent'],
     }
   }
 }
